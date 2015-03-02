@@ -1,0 +1,487 @@
+.alert
+    padding: 13px 15px
+    border: 1px solid #d1d1d1
+    border-radius: 3px
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
+    margin-bottom: 30px
+    background-color: #f8f8f8
+    font-size: 13px
+
+.alert i
+    position: relative
+    top: 1px
+    margin-right: 7px
+    font-size: 16px
+
+.alert.info
+    border: 1px solid #86cde3
+    background-color: #cce9f2
+    color: #3194b1
+
+.alert.success
+    border: 1px solid #b3cda1
+    background-color: #d8f1c6
+    color: #749958
+
+.alert.error
+    border: 1px solid #e1a1a1
+    background-color: #f9d9d9
+    color: #b55454
+
+.alert.warning
+    border: 1px solid #d1c9ae
+    background-color: #fbf4dd
+    color: #978c68
+
+#back-to-top
+    position: fixed
+    right: -65px
+    bottom: 140px
+    width: 50px
+    height: 50px
+    background-color: #747474
+    color: #fafafa
+    font-size: 30px
+    line-height: 40px
+    text-align: center
+    opacity: 0.5
+    cursor: pointer
+    -webkit-border-radius: 2px
+    border-radius: 2px
+    text-decoration: none
+    -webkit-transition: all 0.4s ease 0s
+    -o-transition: all 0.4s ease 0s
+    transition: all 0.4s ease 0s
+    z-index: 80
+
+#back-to-top i
+    font-size: 24px
+    line-height: 50px
+    font-weight: normal
+    vertical-align: top
+    -webkit-transition: all 0.4s ease 0s
+    -o-transition: all 0.4s ease 0s
+    transition: all 0.4s ease 0s
+
+#back-to-top:hover
+    background-color: rgba(0, 0, 0, 0.7)
+
+#back-to-top:hover i
+    color: #fff
+
+#back-to-top.visible
+    right: 30px
+
+#back-to-top.gone
+    right: -65px
+
+.btn
+    display: inline-block
+    padding: 10px 12px
+    border: 1px solid #ccc
+    border-radius: 3px
+    margin: 0 5px 20px 0
+    background-color: #fff
+    color: #444
+    line-height: 18px
+    vertical-align: middle
+    text-decoration: none !important
+    cursor: pointer
+
+.btn:focus
+    outline: none
+
+.btn-large
+    padding: 12px 24px
+    font-size: 13px
+
+.btn i,
+.btn-large i
+    float: left
+    margin: 2px 8px 0 -4px
+    font-size: 14px
+    line-height: 14px
+
+.btn:hover
+    background: #f9f9f9
+
+.btn-white
+    border: 1px solid #dddddd
+    background-color: #f7f7f7
+    color: #444
+
+a.btn-white
+    color: #444
+
+.btn-white:hover
+    background: #fbfbfb
+
+.btn-black
+    border: 1px solid #464646
+    background-color: #464646
+    color: #fff
+
+a.btn-black
+    color: #fff
+
+.btn-black:hover
+    background: #535353
+
+.btn-blue
+    border: 1px solid #1f70ad
+    background-color: #2778c8
+    color: #fff
+
+a.btn-blue
+    color: #fff
+
+.btn-blue:hover
+    background: #287fc8
+
+.btn-red
+    border: 1px solid #b23730
+    background-color: #c74039
+    color: #fff
+
+a.btn-red
+    color: #fff
+
+.btn-red:hover
+    background: #ce4640
+
+.btn-green
+    border: 1px solid #819633
+    background-color: #8da046
+    color: #fff
+
+a.btn-green
+    color: #fff
+
+.btn-green:hover
+    background: #93a749
+
+ul.unstyled
+    list-style-type: none
+
+ul.square
+    list-style-type: square
+
+ul.circle
+    list-style-type: circle
+
+ul.check,
+ul.plus,
+ul.pin,
+ul.fill-circle
+    list-style: none
+    li
+        list-style none
+
+ul.check li:before,
+ul.plus li:before,
+ul.pin li:before,
+ul.fill-circle li:before
+    position: relative
+    top: -2px
+    width: auto
+    height: auto
+    margin-right: 8px
+    color: #fdb020
+    font-family: 'FontAwesome'
+    font-size: 10px
+    font-style: normal
+
+ul.fill-circle li:before
+    font-size: 7px
+
+ul.check li:before
+    content: ""
+
+ul.plus li:before
+    content: ""
+
+ul.pin li:before
+    content: ""
+
+ul.fill-circle li:before
+    content: ""
+
+.divider
+    margin: 30px 0
+
+.divider.single-line
+    border-top: 1px solid #e2e2e2
+
+.divider.double-line
+    border-top: 4px double #e2e2e2
+
+.divider.single-dotted
+    height: 1px
+    background: url(../images/bg-single-dotted.gif) repeat-x top left
+
+.divider.double-dotted
+    height: 4px
+    background: url(../images/bg-double-dotted.gif) repeat-x top left
+
+.icon-box-1
+    position: relative
+    margin-bottom: 30px
+
+.icon-box-1 > i
+    float: left
+    display: block
+    font-size: 32px
+    line-height: 32px
+
+.icon-box-1 > img
+    float: left
+    display: block
+
+.icon-box-1 .icon-box-content
+    margin-left: 42px
+
+.icon-box-1:hover > i
+    color: #fdb020
+
+.icon-box-2
+    position: relative
+    margin-bottom: 30px
+
+.icon-box-2 > i
+    display: block
+    margin-bottom: 10px
+    font-size: 48px
+
+.icon-box-2 > img
+    margin-bottom: 10px
+
+.icon-box-2 .icon-box-content
+.icon-box-2:hover > i
+    color: #fdb020
+
+.icon-box-3
+    position: relative
+    margin-bottom: 30px
+
+.icon-box-3 > i
+    float: left
+    margin-right: 10px
+    font-size: 32px
+
+.icon-box-3 > img
+    float: left
+    margin-right: 10px
+
+.icon-box-3 .icon-box-content
+.icon-box-3:hover > i
+    color: #fdb020
+
+.icon-box-4
+    position: relative
+    margin: 30px 0
+
+.icon-box-4 > i
+    position: absolute
+    z-index: 20
+    left: 50%
+    width: 60px
+    height: 60px
+    border: 1px solid #969696
+    border-radius: 30px
+    -webkit-border-radius: 50%
+    border-radius: 50%
+    margin-top: -30px
+    margin-left: -30px
+    background-color: #e1e1e1
+    background-clip: padding-box
+    color: #444444
+    font-size: 32px
+    line-height: 60px
+    text-align: center
+
+.icon-box-4 .icon-box-content
+    position: relative
+    z-index: 10
+    padding: 55px 40px 40px
+    border: 1px solid #e0e0e0
+    -webkit-border-radius: 50%
+    border-radius: 3px
+    margin-top: 16px
+    background-color: #f4f4f4
+    text-align: center
+
+.icon-box-4:hover > i
+    color: #fdb020
+
+.icon-box-5
+    position: relative
+    margin-bottom: 30px
+
+.icon-box-5 > i
+    position: absolute
+    z-index: 20
+    top: 50%
+    left: 0
+    width: 60px
+    height: 60px
+    border: 1px solid #969696
+    border-radius: 30px
+    -webkit-border-radius: 50%
+    border-radius: 50%
+    margin-top: -30px
+    background-color: #e1e1e1
+    background-clip: padding-box
+    color: #444444
+    font-size: 32px
+    line-height: 60px
+    text-align: center
+
+.icon-box-5 .icon-box-content
+    position: relative
+    z-index: 10
+    padding: 40px 40px 40px 55px
+    border: 1px solid #e0e0e0
+    -webkit-border-radius: 3px
+    border-radius: 3px
+    margin-left: 30px
+    background-color: #f4f4f4
+    text-align: center
+
+.icon-box-5:hover > i
+    color: #fdb020
+
+.pie-chart
+    position: relative
+    float: left
+    text-align: center
+
+.pie-chart canvas
+    position: absolute
+    z-index: 1
+    top: 0
+    left: 0
+
+.pie-chart i,
+.pie-chart .pie-chart-custom-text,
+.pie-chart .pie-chart-percent
+    position: absolute
+    z-index: 10
+    top: 0
+    left: 0
+    display: block
+    width: 100%
+    color: #444444
+    text-align: center
+
+.pie-chart img
+    max-width: 100%
+    vertical-align: middle
+
+.pie-chart .pie-chart-custom-text
+    font-size: 18px
+
+.pie-chart .pie-chart-percent
+    font-size: 16px
+    font-weight: 700
+
+.pie-chart-description
+    margin-left: 180px
+
+@media (max-width: 767px)
+    .pie-chart
+        float: none
+        margin: 0 auto 30px
+
+    .pie-chart-description
+        margin-left: 0
+
+a.social-icon
+    display: inline-block
+    width: 32px
+    margin-right: 15px
+    margin-bottom: 5px
+    background-color: #252525
+    color: #fff
+    text-align: center
+
+a.social-icon:last-child
+    margin-right: 0
+
+a.social-icon i
+    font-size: 16px
+    line-height: 32px
+
+a.social-icon:hover
+    text-decoration: none
+
+a.facebook-icon:hover
+    background-color: #0e59a0 !important
+
+a.twitter-icon:hover
+    background-color: #0ea4ff !important
+
+a.dribble-icon:hover
+    background-color: #ea73a0 !important
+
+a.pinterest-icon:hover
+    background-color: #d73532 !important
+
+a.googleplus-icon:hover
+    background-color: #282927 !important
+
+a.tumblr-icon:hover
+    background-color: #586980 !important
+
+a.instagram-icon:hover
+    background-color: #82685a !important
+
+a.rss-icon:hover
+    background-color: #f79638 !important
+
+a.linkedin-icon:hover
+    background-color: #018faf !important
+
+a.skype-icon:hover
+    background-color: #00b0f6 !important
+
+a.flickr-icon:hover
+    background-color: #0061db !important
+
+a.vimeo-icon:hover
+    background-color: #63879c !important
+
+a.github-icon:hover
+    background-color: #3b3b3b !important
+
+a.youtube-icon:hover
+    background-color: #cc181e !important
+
+a.windows-icon:hover
+    background-color: #6dc2e9 !important
+
+a.dropbox-icon:hover
+    background-color: #007ee5 !important
+
+a.xing-icon:hover
+    background-color: #026566 !important
+
+@media (max-width: 480px)
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr
+        display: block
+
+    thead tr
+        position: absolute
+        top: -9999px
+        left: -9999px
+
+    tr
+        border-top: 1px solid #555
+
+    td:first-child
+        border-top: none !important

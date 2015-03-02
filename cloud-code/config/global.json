@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "_default": {
+            "link": "bryabov"
+        }, 
+        "bryabov": {
+            "applicationId": "eedVjYt10kzEm191sR6U6UZgUneKjmBq7HsGxQfV", 
+            "masterKey": "rKoGIG1xh7PsQqkChxeyZrVdrLZiMKxX8VsORrEo"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.3.5"
+    }
+}

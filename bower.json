@@ -1,0 +1,23 @@
+{
+  "name": "bryabov",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3",
+    "fontawesome": "~4.3.0",
+    "magnific-popup": "~1.0.0",
+    "jquery-easing-original": "~1.3.1",
+    "jquery-placeholder": "~2.1.0",
+    "isotope": "~2.1.0",
+    "jquery.easy-pie-chart": "~2.1.6",
+    "jquery-validation": "~1.13.1",
+    "lodash": "~3.1.0",
+    "imagesloaded": "~3.1.8",
+    "jquery-viewport": "~0.2.1",
+    "google-open-sans": "~1.0.0",
+    "parse": "~1.3.4"
+  },
+  "resolutions": {
+    "jquery": "~2.1.1"
+  }
+}
