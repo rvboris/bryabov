@@ -1,7 +1,15 @@
-@media print
-  .noprint
-  	display: none
+@media all
+	.page-break
+		display: none
 
-  	@media (max-width: 767px)
-    	#wrap
-        	text-align: left
+@media print
+	.page-break
+		display: block
+		page-break-before: always
+	.noprint
+		display: none
+		
+	@media (max-width: 767px)
+		#wrap
+			text-align: left
+

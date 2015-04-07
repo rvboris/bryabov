@@ -18,7 +18,8 @@
   "node": true,
   "globals": {
     "_": false,
-    "Parse": false
+    "Parse": false,
+    "Lang": false
   },
   "devel": true
 }

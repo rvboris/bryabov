@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "_": true,
+    "Parse": true,
+    "Lang": true
+  }, 
+  "rules": {
+    "quotes": [1, "single", "avoid-escape"],
+    "semi": [2, "always"],
+    "brace-style": '1tbs',
+    "new-cap": 1,
+    "strict": 2,
+    "no-extra-strict": 1,
+    "no-unused-vars": [2, {"vars": "local", "args": "none"}],
+    "no-underscore-dangle": 0,
+    "no-new": 0,
+    "camelcase": 0
+  }
+}

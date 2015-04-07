@@ -66,4 +66,7 @@
             });
         }
     });
+
+	window.lang = new Lang('en');
+	window.lang.dynamic('ru', 'languages/ru.json');
 })(window.jQuery);

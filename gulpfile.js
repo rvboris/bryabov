@@ -1,16 +1,7 @@
 /* jshint node:true */
-'use strict';
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-
-gulp.task('styles', function() {
-    return gulp.src('app/styles/main.css')
-        .pipe($.autoprefixer({
-            browsers: ['last 1 version']
-        }))
-        .pipe(gulp.dest('.tmp/styles'));
-});
 
 gulp.task('styles', function() {
     return gulp.src('app/styles/main.styl')
@@ -21,11 +12,13 @@ gulp.task('styles', function() {
         .pipe(gulp.dest('.tmp/styles'));
 });
 
-gulp.task('jshint', function() {
+gulp.task('eslint', function() {
     return gulp.src('app/scripts/**/*.js')
-        .pipe($.jshint())
-        .pipe($.jshint.reporter('jshint-stylish'))
-        .pipe($.jshint.reporter('fail'));
+        .pipe($.eslint({
+            configFile: '.eslintrc'
+        }))
+        .pipe($.eslint.format())
+        .pipe($.eslint.failOnError());
 });
 
 gulp.task('html', ['styles'], function() {
@@ -66,6 +59,7 @@ gulp.task('extras', function() {
     return gulp.src([
         'app/*.*',
         '!app/*.html',
+        'languages/*.json',
         'node_modules/apache-server-configs/dist/.htaccess'
     ], {
         dot: true
@@ -132,7 +126,7 @@ gulp.task('watch', ['connect'], function() {
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['eslint', 'html', 'images', 'fonts', 'extras'], function() {
     return gulp.src('dist/**/*').pipe($.size({
         title: 'build',
         gzip: true

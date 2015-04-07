@@ -43,6 +43,9 @@
     padding-bottom: 40px
     border-bottom: 1px solid #dadada
     margin-bottom: 40px
+    p, li, span
+        font-size: 14px
+        line-height: 25px
 
 .cv-item:last-child
     padding-bottom: 0
@@ -157,6 +160,29 @@
     background-color: #b1b1b1
     color: #fff
 
+#languages
+	position: absolute
+	top: -100px
+	button
+		border: 0
+		background: #92B687
+		padding: 10px
+		text-transform: uppercase
+		color: #FFF
+		outline: 0
+		transition: background-color 0.3s
+		&.active, &:hover
+			background #5c8c4e
+		&.active
+			cursor default
+
+@media (max-width: 1399px)
+	#languages
+		top: -50px
+@media (max-width: 1024px)
+	#languages
+		top: 10px
+
 .cv-contact
     position: fixed
     top: 210px
@@ -218,8 +244,7 @@ select.validation-error
 #contact-form button:hover
     background-color: #000
 
-#print,
-#pdf
+#print
     position: fixed
     right: 30px
     display: block
@@ -235,8 +260,7 @@ select.validation-error
     transition: background-color 0.3s
     z-index: 80
 
-#print i,
-#pdf i
+#print i
     color: #fff
     font-size: 24px
     line-height: 50px
@@ -244,11 +268,7 @@ select.validation-error
 #print
     bottom: 30px
 
-#pdf
-    bottom: 85px
-
-#print:hover,
-#pdf:hover
+#print:hover
     background-color: #d78c02
     
 .skill-list
@@ -259,15 +279,50 @@ select.validation-error
         li
             display: inline-block
             padding: 6px 10px
-            border: 1px dashed #DADADA
+            border: 1px solid #DADADA
             transition: all 0.3s ease
             cursor: default
             font-size: 16px
             font-weight: 300
+            margin: 4px
+            
             &:hover
-                border: 1px solid #3E6034
-                background: #5C8C4E
-                color: #FFF
+                border: 1px solid darken(#DADADA, 20)
+                background: #DADADA
+                color: darken(#DADADA, 60)
+                
+            &.js
+                border: 1px solid #E7D578
+                &:hover
+                    background #E7D578
+                    color: darken(#E7D578, 60)
+                    border: 1px solid darken(#E7D578, 20)
+            &.css
+                border: 1px solid #C2E2B7
+                &:hover
+                    background #C2E2B7
+                    color: darken(#C2E2B7, 60)
+                    border: 1px solid darken(#C2E2B7, 20)
+            &.db
+                border: 1px solid #B8B5C8
+                &:hover
+                    background #B8B5C8
+                    color: darken(#B8B5C8, 60)
+                    border: 1px solid darken(#B8B5C8, 20)
+            &.cvs
+                border: 1px solid #F4BDB3
+                &:hover
+                    background #F4BDB3
+                    color: darken(#F4BDB3, 60)
+                    border: 1px solid darken(#F4BDB3, 20) 
+            &.sharp
+                border: 1px solid #9BB7FF
+                &:hover
+                    background #9BB7FF
+                    color: darken(#9BB7FF, 60)
+                    border: 1px solid darken(#9BB7FF, 20)
+                    
+                
             
 
 @media (max-width: 1399px)

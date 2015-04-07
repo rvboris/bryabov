@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     'use strict';
 
     function ieViewportFix() {
@@ -23,7 +23,7 @@
     }
 
     function setDimensionsPieCharts() {
-        $('.pie-chart').each(function() {
+        $('.pie-chart').each(function () {
             var $t = $(this);
             var n = $t.parent().width();
             var r = $t.attr('data-barSize');
@@ -45,7 +45,7 @@
 
     function animatePieCharts() {
         if (!_.isUndefined($.fn.easyPieChart)) {
-            $('.pie-chart:in-viewport').each(function() {
+            $('.pie-chart:in-viewport').each(function () {
                 var $t = $(this);
                 var n = $t.parent().width();
                 var r = $t.attr('data-barSize');
@@ -62,7 +62,7 @@
                     barColor: $t.attr('data-barColor'),
                     trackColor: $t.attr('data-trackColor'),
                     scaleColor: 'transparent',
-                    onStep: function(from, to, percent) {
+                    onStep: function (from, to, percent) {
                         $(this.el).find('.pie-chart-percent span').text(Math.round(percent));
                     }
                 });
@@ -71,7 +71,7 @@
     }
 
     function animateMilestones() {
-        $('.milestone:in-viewport').each(function() {
+        $('.milestone:in-viewport').each(function () {
             var $t = $(this);
             var n = $t.find('.milestone-value').attr('data-stop');
             var r = parseInt($t.find('.milestone-value').attr('data-speed'));
@@ -85,10 +85,10 @@
                 }, {
                     duration: r,
                     easing: 'linear',
-                    step: function() {
+                    step: function () {
                         $t.find('.milestone-value').text(Math.floor(this.countNum));
                     },
-                    complete: function() {
+                    complete: function () {
                         $t.find('.milestone-value').text(this.countNum);
                     }
                 });
@@ -97,7 +97,7 @@
     }
 
     function animateProgressBars() {
-        $('.progress-bar .progress-bar-outer:in-viewport').each(function() {
+        $('.progress-bar .progress-bar-outer:in-viewport').each(function () {
             var $t = $(this);
 
             if (!$t.hasClass('already-animated')) {
@@ -137,7 +137,7 @@
                         required: 'Field is required!'
                     }
                 },
-                submitHandler: function(form) {
+                submitHandler: function (form) {
                     var result;
 
                     var parseAPPID = 'eedVjYt10kzEm191sR6U6UZgUneKjmBq7HsGxQfV';
@@ -149,12 +149,12 @@
                     var message = new MessageObject();
 
                     message.save(_.omit($(form).serializeObject(), 'submit'), {
-                        success: function() {
+                        success: function () {
                             result = '<div class="alert success"><i class="fa fa-check-circle-o"></i>The message has been sent!</div>';
                             $('#contact-form').find('input[type=text], input[type=email], textarea').val('');
                             $('#formstatus').html(result);
                         },
-                        error: function() {
+                        error: function () {
                             result = '<div class="alert error"><i class="fa fa-times-circle"></i>There was an error sending the message!</div>';
                             $('#formstatus').html(result);
                         }
@@ -165,7 +165,7 @@
     }
 
     function handleBackToTop() {
-        $('#back-to-top').click(function() {
+        $('#back-to-top').click(function () {
             $('html, body').animate({
                 scrollTop: 0
             }, 'slow');
@@ -189,7 +189,7 @@
                 left: '-320px'
             });
 
-            $('.cv-contact .cv-contact-toggle').click(function(e) {
+            $('.cv-contact .cv-contact-toggle').click(function (e) {
                 e.preventDefault();
                 var div = $('.cv-contact');
                 if (div.css('left') === '-320px') {
@@ -205,7 +205,31 @@
         }
     }
 
-    $(document).ready(function() {
+    function languageChange() {
+        var navigatorLanguage = navigator.language || (navigator.userLanguage && navigator.userLanguage.replace(/-[a-z]{2}$/, String.prototype.toUpperCase)) || 'en-US';
+        navigatorLanguage = navigatorLanguage.split('-')[0];
+
+
+        $('#lang-ru').on('click', function () {
+            window.lang.change('ru');
+            $('#languages button').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        $('#lang-en').on('click', function () {
+            window.lang.change('en');
+            $('#languages button').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        if (navigatorLanguage === 'ru') {
+            $('#lang-ru').trigger('click');
+        } else {
+            $('#lang-en').trigger('click');
+        }
+    }
+
+    $(document).ready(function () {
         ieViewportFix();
         setDimensionsPieCharts();
         animatePieCharts();
@@ -215,9 +239,10 @@
         handleBackToTop();
         showHidebackToTop();
         handleCvContact();
+        languageChange();
     });
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         animateMilestones();
         animatePieCharts();
         animateProgressBars();
