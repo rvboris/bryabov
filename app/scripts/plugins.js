@@ -1,10 +1,19 @@
-(function($) {
+(function ($) {
     'use strict';
 
-    $.fn.serializeObject = function() {
+    FastClick.attach(document.body);
+
+    WebFont.load({
+        custom: {
+            families: ['Open Sans']
+        }
+    });
+
+    $.fn.serializeObject = function () {
         var o = {};
         var a = this.serializeArray();
-        $.each(a, function() {
+
+        $.each(a, function () {
             if (o[this.name] !== undefined) {
                 if (!o[this.name].push) {
                     o[this.name] = [o[this.name]];
@@ -14,10 +23,11 @@
                 o[this.name] = this.value || '';
             }
         });
+
         return o;
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         if (!_.isUndefined($.fn.placeholder)) {
             $('input[placeholder], textarea[placeholder]').placeholder();
         }
@@ -34,12 +44,13 @@
                 type: 'image',
                 gallery: {
                     enabled: true
-                }
+                },
+                mainClass: 'mfp-fade'
             });
         }
 
         if (!_.isUndefined($.fn.isotope) && ($(window).width() > 767)) {
-            $('.portfolio-items').imagesLoaded(function() {
+            $('.portfolio-items').imagesLoaded(function () {
                 var container = $('.portfolio-items');
 
                 container.isotope({
@@ -47,7 +58,7 @@
                     layoutMode: 'masonry'
                 });
 
-                $('.portfolio-filter li a').click(function() {
+                $('.portfolio-filter li a').click(function () {
                     $('.portfolio-filter li a').removeClass('active');
                     $(this).addClass('active');
 
@@ -60,13 +71,13 @@
                     return false;
                 });
 
-                $(window).resize(function() {
+                $(window).resize(function () {
                     container.isotope({});
                 });
             });
         }
     });
 
-	window.lang = new Lang('en');
-	window.lang.dynamic('ru', 'languages/ru.json');
+    window.lang = new Lang('en');
+    window.lang.dynamic('ru', 'languages/ru.json');
 })(window.jQuery);

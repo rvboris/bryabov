@@ -5,8 +5,11 @@
   "globals": {
     "_": true,
     "Parse": true,
-    "Lang": true
-  }, 
+    "Lang": true,
+    "WebFont": true,
+    "FastClick": true,
+    "Skype": true
+  },
   "rules": {
     "quotes": [1, "single", "avoid-escape"],
     "semi": [2, "always"],

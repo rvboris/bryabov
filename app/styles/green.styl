@@ -1,5 +1,5 @@
 body
-    background: transparent url(../images/body-bg.jpg) fixed no-repeat center
+    background: #E9E2D5 url(../images/body-bg.jpg) fixed no-repeat center
     background-size: cover
     color: #444
     text-rendering: optimizeLegibility !important
@@ -86,32 +86,6 @@ textarea:-ms-input-placeholder
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder
     color: #ccc
-
-.alert
-    border: 1px solid #d1d1d1
-    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1)
-    background-color: #f8f8f8
-
-.alert.info
-    border: 1px solid #86cde3
-    background-color: #cce9f2
-    color: #3194b1
-
-.alert.success
-    border: 1px solid #b3cda1
-    background-color: #d8f1c6
-    color: #749958
-
-.alert.error
-    border: 1px solid #e1a1a1
-    background-color: #f9d9d9
-    color: #b55454
-
-.alert.warning
-    border: 1px solid #d1c9ae
-    background-color: #fbf4dd
-    color: #978c68
 
 #back-to-top
     background-color: rgba(0, 0, 0, 0.8)
@@ -218,98 +192,16 @@ ul.fill-circle li:before
 .divider.double-dotted
     background: url(../../images/bg-double-dotted.gif) repeat-x top left
 
-.icon-box-1:hover > i
-    color: #92B687
-
-.icon-box-2:hover > i
-    color: #92B687
-
-.icon-box-3:hover > i
-    color: #92B687
-
-.icon-box-4 > i
-    border: 1px solid #969696
-    background-color: #e1e1e1
-    color: #444444
-
-.icon-box-4 .icon-box-content
-    border: 1px solid #e0e0e0
-    background-color: #f4f4f4
-
-.icon-box-4:hover > i
-    color: #92B687
-
-.icon-box-5 > i
-    border: 1px solid #969696
-    background-color: #e1e1e1
-    color: #444444
-
-.icon-box-5 .icon-box-content
-    border: 1px solid #e0e0e0
-    background-color: #f4f4f4
-
-.icon-box-5:hover > i
-    color: #92B687
-
 .pie-chart i,
 .pie-chart .pie-chart-custom-text,
 .pie-chart .pie-chart-percent
     color: #444444
 
 a.social-icon
-    background-color: #252525
-    color: #fff
-
-a.facebook-icon:hover
-    background-color: #0e59a0 !important
-
-a.twitter-icon:hover
-    background-color: #0ea4ff !important
-
-a.dribble-icon:hover
-    background-color: #ea73a0 !important
-
-a.pinterest-icon:hover
-    background-color: #d73532 !important
-
-a.googleplus-icon:hover
-    background-color: #282927 !important
-
-a.tumblr-icon:hover
-    background-color: #586980 !important
-
-a.instagram-icon:hover
-    background-color: #82685a !important
-
-a.rss-icon:hover
-    background-color: #f79638 !important
-
-a.linkedin-icon:hover
-    background-color: #018faf !important
-
-a.skype-icon:hover
-    background-color: #00b0f6 !important
-
-a.flickr-icon:hover
-    background-color: #0061db !important
-
-a.vimeo-icon:hover
-    background-color: #63879c !important
-
-a.github-icon:hover
-    background-color: #3b3b3b !important
-
-a.youtube-icon:hover
-    background-color: #cc181e !important
-
-a.windows-icon:hover
-    background-color: #6dc2e9 !important
-
-a.dropbox-icon:hover
-    background-color: #007ee5 !important
-
-a.xing-icon:hover
-    background-color: #026566 !important
+    background-color: #f0f0f0
+    color: #303030
+    &:hover
+        background-color: darken(#f0f0f0, 10%)
 
 @media (max-width: 480px)
     tr
@@ -320,6 +212,8 @@ a.xing-icon:hover
 
 .cv-section
     border-top: 1px solid #dadada
+    &.portfolio
+        padding-bottom 20px
 
 #header .cv-section:first-child
     border-top: 10px solid #92B687
@@ -349,13 +243,19 @@ a.xing-icon:hover
 
 .portfolio-filter ul li a
     color: #444
-    border-bottom: 1px dashed transparent
+    border-bottom: 1px solid transparent
 
 .portfolio-filter ul li a:hover,
 .portfolio-filter ul li a.active
-    color: #000
-    border-bottom: 1px dashed #000
+    color: #444
+    border-bottom: 1px solid #444
     background: transparent
+
+.portfolio-filter .tip
+    display inline-block
+    color #b1b1b1
+    font-weight 300
+    margin 20px 0 0 0
 
 .cv-contact
     background-color: #fff

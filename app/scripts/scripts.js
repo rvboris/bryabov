@@ -45,7 +45,7 @@
 
     function animatePieCharts() {
         if (!_.isUndefined($.fn.easyPieChart)) {
-            $('.pie-chart:in-viewport').each(function () {
+            $('.pie-chart').each(function () {
                 var $t = $(this);
                 var n = $t.parent().width();
                 var r = $t.attr('data-barSize');
@@ -150,12 +150,16 @@
 
                     message.save(_.omit($(form).serializeObject(), 'submit'), {
                         success: function () {
-                            result = '<div class="alert success"><i class="fa fa-check-circle-o"></i>The message has been sent!</div>';
+                            result = '<div class="alert success">';
+                            result += '<i class="fa fa-check-circle-o"></i>The message has been sent!</div>';
+
                             $('#contact-form').find('input[type=text], input[type=email], textarea').val('');
                             $('#formstatus').html(result);
                         },
                         error: function () {
-                            result = '<div class="alert error"><i class="fa fa-times-circle"></i>There was an error sending the message!</div>';
+                            result = '<div class="alert error">';
+                            result += '<i class="fa fa-times-circle"></i>There was an error sending the message!</div>';
+
                             $('#formstatus').html(result);
                         }
                     });
@@ -205,11 +209,22 @@
         }
     }
 
+    function getLanguage() {
+        var lang = window.navigator.languages ? window.navigator.languages[0] : null;
+        lang = lang || window.navigator.language || window.navigator.browserLanguage || window.navigator.userLanguage;
+
+        if (lang.indexOf('-') !== -1) {
+            lang = lang.split('-')[0];
+        }
+
+        if (lang.indexOf('_') !== -1) {
+            lang = lang.split('_')[0];
+        }
+
+        return lang;
+    }
+
     function languageChange() {
-        var navigatorLanguage = navigator.language || (navigator.userLanguage && navigator.userLanguage.replace(/-[a-z]{2}$/, String.prototype.toUpperCase)) || 'en-US';
-        navigatorLanguage = navigatorLanguage.split('-')[0];
-
-
         $('#lang-ru').on('click', function () {
             window.lang.change('ru');
             $('#languages button').removeClass('active');
@@ -222,7 +237,7 @@
             $(this).addClass('active');
         });
 
-        if (navigatorLanguage === 'ru') {
+        if (getLanguage() === 'ru') {
             $('#lang-ru').trigger('click');
         } else {
             $('#lang-en').trigger('click');

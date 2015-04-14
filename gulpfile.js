@@ -1,18 +1,18 @@
-/* jshint node:true */
-
 var gulp = require('gulp');
+var ftp = require('vinyl-ftp');
 var $ = require('gulp-load-plugins')();
 
-gulp.task('styles', function() {
+gulp.task('styles', function () {
     return gulp.src('app/styles/main.styl')
+        .pipe($.changed('.tmp/styles'))
         .pipe($.stylus())
         .pipe($.autoprefixer({
-            browsers: ['last 1 version']
+            browsers: ['last 2 version']
         }))
         .pipe(gulp.dest('.tmp/styles'));
 });
 
-gulp.task('eslint', function() {
+gulp.task('eslint', function () {
     return gulp.src('app/scripts/**/*.js')
         .pipe($.eslint({
             configFile: '.eslintrc'
@@ -21,25 +21,43 @@ gulp.task('eslint', function() {
         .pipe($.eslint.failOnError());
 });
 
-gulp.task('html', ['styles'], function() {
+gulp.task('jscs', function () {
+    return gulp.src('app/scripts/**/*.js').pipe($.jscs());
+});
+
+gulp.task('jsonlint', function () {
+    gulp.src('app/languages/*.json')
+        .pipe($.jsonlint())
+        .pipe($.jsonlint.reporter());
+});
+
+gulp.task('html', ['styles'], function () {
     var assets = $.useref.assets({
         searchPath: '{.tmp,app}'
     });
 
     return gulp.src('app/*.html')
         .pipe(assets)
+        .pipe($.if('*.js', $.stripDebug()))
         .pipe($.if('*.js', $.uglify()))
+        .pipe($.if('*.css', $.uncss({
+            html: ['app/index.html'],
+            ignore: ['.pie-chart canvas', /.wf-active/, /.mfp/, /#languages/]
+        })))
+        .pipe($.if('*.css', $.shorthand()))
         .pipe($.if('*.css', $.csso()))
+        .pipe($.rev())
         .pipe(assets.restore())
         .pipe($.useref())
         .pipe($.if('*.html', $.minifyHtml({
             conditionals: true,
             loose: true
         })))
+        .pipe($.revReplace())
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('images', function() {
+gulp.task('images', function () {
     return gulp.src('app/images/**/*')
         .pipe($.cache($.imagemin({
             progressive: true,
@@ -48,27 +66,25 @@ gulp.task('images', function() {
         .pipe(gulp.dest('dist/images'));
 });
 
-gulp.task('fonts', function() {
+gulp.task('fonts', function () {
     return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
-        .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
+        .pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
         .pipe($.flatten())
         .pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('extras', function() {
+gulp.task('extras', function () {
     return gulp.src([
-        'app/*.*',
-        '!app/*.html',
-        'languages/*.json',
-        'node_modules/apache-server-configs/dist/.htaccess'
+        'app/languages/*.json',
+        'app/*.ico'
     ], {
-        dot: true
+        base: 'app'
     }).pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('connect', function() {
+gulp.task('connect', function () {
     var serveStatic = require('serve-static');
     var serveIndex = require('serve-index');
     var app = require('connect')()
@@ -78,20 +94,21 @@ gulp.task('connect', function() {
         .use(serveStatic('.tmp'))
         .use(serveStatic('app'))
         .use('/bower_components', serveStatic('bower_components'))
+        .use('/node_modules', serveStatic('node_modules'))
         .use(serveIndex('app'));
 
     require('http').createServer(app)
         .listen(9000)
-        .on('listening', function() {
+        .on('listening', function () {
             console.log('Started connect web server on http://localhost:9000');
         });
 });
 
-gulp.task('serve', ['connect', 'watch'], function() {
+gulp.task('serve', ['connect', 'watch'], function () {
     require('opn')('http://localhost:9000');
 });
 
-gulp.task('wiredep', function() {
+gulp.task('wiredep', function () {
     var wiredep = require('wiredep').stream;
 
     gulp.src('app/*.html')
@@ -112,7 +129,7 @@ gulp.task('wiredep', function() {
         .pipe(gulp.dest('app'));
 });
 
-gulp.task('watch', ['connect'], function() {
+gulp.task('watch', ['connect'], function () {
     $.livereload.listen();
 
     gulp.watch([
@@ -126,13 +143,32 @@ gulp.task('watch', ['connect'], function() {
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['eslint', 'html', 'images', 'fonts', 'extras'], function() {
+gulp.task('build', ['clean', 'eslint', 'jsonlint', 'jscs', 'html', 'images', 'fonts', 'extras'], function () {
     return gulp.src('dist/**/*').pipe($.size({
         title: 'build',
         gzip: true
     }));
 });
 
-gulp.task('default', ['clean'], function() {
+gulp.task('default', function () {
     gulp.start('build');
+});
+
+gulp.task('deploy', ['build'], function () {
+    var deployConfig = require('./deploy-config.json');
+
+    var conn = ftp.create({
+        host: deployConfig.host,
+        user: deployConfig.user,
+        password: deployConfig.password,
+        parallel: 5,
+        log: $.util.log
+    });
+
+    return gulp.src(['dist/**'], {
+            base: 'dist/',
+            buffer: false
+        })
+        .pipe(conn.newerOrDifferentSize('/bryabov'))
+        .pipe(conn.dest('/bryabov'));
 });
