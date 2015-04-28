@@ -151,14 +151,16 @@
                     message.save(_.omit($(form).serializeObject(), 'submit'), {
                         success: function () {
                             result = '<div class="alert success">';
-                            result += '<i class="fa fa-check-circle-o"></i>The message has been sent!</div>';
+                            result += '<i class="fa fa-check-circle-o"></i> ' +
+                            window.lang.translate('The message has been sent!') + '</div>';
 
                             $('#contact-form').find('input[type=text], input[type=email], textarea').val('');
                             $('#formstatus').html(result);
                         },
                         error: function () {
                             result = '<div class="alert error">';
-                            result += '<i class="fa fa-times-circle"></i>There was an error sending the message!</div>';
+                            result += '<i class="fa fa-times-circle"></i> ' +
+                            window.lang.translate('There was an error sending the message!') + '</div>';
 
                             $('#formstatus').html(result);
                         }

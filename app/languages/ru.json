@@ -35,9 +35,9 @@
 		"Development and maintenance of the client site lookwish.ru (SPA, Angular)": "Разработка и поддержка клиентской части сайта lookwish.ru (SPA, Angular)",
 		"Implementation of client-side assembly for old projects (grunt, gulp, webpack, yeoman, bower)": "Организация сборки новых и старых проектов (grunt, gulp, webpack, yeoman, bower)",
 		"Creation and development of embedded solutions JS (dressing, and other developments)": "Создание и разработка встраиваемых решений (виртуальная примерочная и другое)",
-		"support fitting (ostin, finflare, befree and others)": "Поддержка виртуальных примерочных на различных сайтах (ostin, finflare, befree и другие)",
-		"multi-layout system": "гибкая система стилизации и модификации шаблонов",
-		"development and maintenance of social applications Facebook, Vkontakte": "разработка и поддержка социальных приложений Facebook, Vkontakte",
+		"Support fitting (ostin, finflare, befree and others)": "Поддержка виртуальных примерочных на различных сайтах (ostin, finflare, befree и другие)",
+		"Multi-layout system": "Гибкая система стилизации и модификации шаблонов",
+		"Development and maintenance of social applications Facebook, Vkontakte": "Разработка и поддержка социальных приложений Facebook, Vkontakte",
 		"Creation and development of automation applications photography (node-webkit, KnockoutJS, Angular, Web-Sockets)": "Разработка и поддержка системы автоматизированной фото-видео съемки (node-webkit, KnockoutJS, Angular, Web-Sockets)",
 		"Work with FTDI drivers": "Работа с FTDI драйверами",
 		"Stepper motor control (C#)": "Управление шаговыми двигателями (С#)",
@@ -66,9 +66,11 @@
 		"Languages": "Языки",
 		"Russian - native": "Русский - родной",
 		"English - Intermediate (active learning for IELTS)": "Английский - Intermediate (активно изучаю для IELTS)",
-		"This is only visual part of projects, some of them is very old": "Здесь собраны только те проекты которые представить визуально, некоторые из них очень старые",
+		"This is only visual part of projects, some of them is very old": "Здесь собраны только те проекты которые можно представить визуально, некоторые из них очень старые",
 		"Active projects": "Активные проекты",
 		"Interests": "Интересы",
-		"At free time I work on personal projects and learn something new, and of course spending time with my family. I like outdoor activities, trips to nature.": "Свободное время я занимаюсь личными проектами или изучаю что то новое, ну и конечно провожу время с семьей. Люблю активный отдых, поездки на природу."
+		"At free time I work on personal projects and learn something new, and of course spending time with my family. I like outdoor activities, trips to nature.": "Свободное время я занимаюсь личными проектами или изучаю что то новое, ну и конечно провожу время с семьей. Люблю активный отдых, поездки на природу.",
+		"The message has been sent!": "Сообщение было отправлено!",
+		"There was an error sending the message!": "Ошибка при отправке сообщения!"
 	}
 }

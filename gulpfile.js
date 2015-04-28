@@ -42,7 +42,15 @@ gulp.task('html', ['styles'], function () {
         .pipe($.if('*.js', $.uglify()))
         .pipe($.if('*.css', $.uncss({
             html: ['app/index.html'],
-            ignore: ['.pie-chart canvas', /.wf-active/, /.mfp/, /#languages/]
+            ignore: [
+                '.pie-chart canvas',
+                /.wf-active/,
+                /.mfp/,
+                /#languages/,
+                /#contact-form/,
+                /fa-check-circle-o/,
+                /fa-times-circle/
+            ]
         })))
         .pipe($.if('*.css', $.shorthand()))
         .pipe($.if('*.css', $.csso()))
@@ -143,14 +151,14 @@ gulp.task('watch', ['connect'], function () {
     gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['clean', 'eslint', 'jsonlint', 'jscs', 'html', 'images', 'fonts', 'extras'], function () {
+gulp.task('build', ['eslint', 'jsonlint', 'jscs', 'html', 'images', 'fonts', 'extras'], function () {
     return gulp.src('dist/**/*').pipe($.size({
         title: 'build',
         gzip: true
     }));
 });
 
-gulp.task('default', function () {
+gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });
 
