@@ -17,7 +17,7 @@
     border-top: 1px solid #dadada
 
 #header .cv-section:first-child
-    border-top: 10px solid #fdb020
+    border-top: 10px solid #000
 
 .cv-section-title img
     float: left
@@ -63,15 +63,12 @@
 .period
     float: right
     padding: 12px 20px
-    background-color: #b1b1b1
+    background-color: #252525
     color: #fff
     -webkit-transition: background-color 0.3s
     -o-transition: background-color 0.3s
     transition: background-color 0.3s
     text-transform: uppercase
-
-.cv-item:hover .period
-    background-color: #fdb020
 
 .copyright
     padding: 5px 0
@@ -168,14 +165,15 @@
     z-index: 10
     button
         border: 0
-        background: #92B687
+        background: #FFF
         padding: 10px
         text-transform: uppercase
-        color: #FFF
+        color: #252525
         outline: 0
         transition: background-color 0.3s
         &.active, &:hover
-            background #5c8c4e
+            background #252525
+            color #FFF
         &.active
             cursor default
 
@@ -202,9 +200,8 @@
     position: absolute
     top: 0
     right: -50px
-    width: 50px
-    height: 50px
-    background-color: #fdb020
+    width: 52px
+    height: 52px
     text-align: center
     cursor: pointer
     border-radius: 0 2px 2px 0
@@ -216,9 +213,6 @@
     color: #fff
     font-size: 24px
     line-height: 50px
-
-.cv-contact-toggle:hover
-    background-color: #d78c02
 
 .contact-info
     a, a:visited
@@ -268,7 +262,7 @@ select.validation-error
     display: block
     width: 50px
     height: 50px
-    background-color: #fdb020
+    background-color: rgba(0,0,0,0.8)
     text-align: center
     text-decoration: none
     -webkit-border-radius: 2px
@@ -277,6 +271,7 @@ select.validation-error
     -o-transition: background-color 0.3s
     transition: background-color 0.3s
     z-index: 80
+    opacity 0.5
 
 #print i
     color: #fff
@@ -287,7 +282,7 @@ select.validation-error
     bottom: 30px
 
 #print:hover
-    background-color: #d78c02
+    background-color: rgba(0,0,0,1)
 
 .skill-list
     ul
@@ -307,7 +302,7 @@ select.validation-error
 
             &:hover
                 border: 1px solid darken(#DADADA, 20)
-                background: #DADADA
+                background: #252525
                 color: darken(#DADADA, 60)
 
             &.js
@@ -460,4 +455,3 @@ select.validation-error
     .portfolio-items li
         float: left
         width: 50%
-
