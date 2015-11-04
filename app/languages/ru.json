@@ -8,12 +8,13 @@
 		"Web:": "Сайт:",
 		"Profesional Profile": "Обо мне",
 		"Work Experience": "Опыт работы",
-		"September 2012 - Present": "Сентябрь 2012 - По настоящее время",
+		"September 2012 - October 2015": "Сентябрь 2012 - Октябрь 2015",
 		"August 2009 - September 2012": "Август 2009 - Сентябрь 2012",
 		"Programmer": "Программист",
-		"Engecon, Full-Time": "Инжэкон, Полная занятость",
+		"Engecon": "Инжэкон",
+		"Yandex.Money": "Яндекс.Деньги",
 		"Senior Frontend Developer": "Ведущий фронтенд разработчик",
-		"E-Citrus, Full-Time": "E-Citrus, Полная занятость",
+		"E-Citrus": "E-Citrus",
 		"All": "Все",
 		"Web sites": "Сайты",
 		"Apps": "Приложения",
@@ -71,6 +72,12 @@
 		"Interests": "Интересы",
 		"At free time I work on personal projects and learn something new, and of course spending time with my family. I like outdoor activities, trips to nature.": "Свободное время я занимаюсь личными проектами или изучаю что то новое, ну и конечно провожу время с семьей. Люблю активный отдых, поездки на природу.",
 		"The message has been sent!": "Сообщение было отправлено!",
-		"There was an error sending the message!": "Ошибка при отправке сообщения!"
+		"There was an error sending the message!": "Ошибка при отправке сообщения!",
+		"October 2015 - Present": "Октябрь 2015 - По настоящее время",
+		"Web-developer": "Веб-разработчик",
+		"Yandex.Money, Full-Time": "Яндекс.Деньги, Полная занятность",
+		"Work with XScript and XSLT transformations": "Работа c XScript и XSLT преобразованиями",
+		"Work on the BEM methodology, fullstack javascript": "Работа по БЭМ методологии, fullstack javascript",
+		"Full-Time": "Полная занятость"
 	}
 }
