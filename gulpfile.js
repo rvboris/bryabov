@@ -32,7 +32,7 @@ gulp.task('jsonlint', function () {
 });
 
 gulp.task('html', ['styles'], function () {
-    var assets = $.useref.assets({
+    var assets = $.useref({
         searchPath: '{.tmp,app}'
     });
 
@@ -55,8 +55,6 @@ gulp.task('html', ['styles'], function () {
         .pipe($.if('*.css', $.shorthand()))
         .pipe($.if('*.css', $.csso()))
         .pipe($.rev())
-        .pipe(assets.restore())
-        .pipe($.useref())
         .pipe($.if('*.html', $.minifyHtml({
             conditionals: true,
             loose: true
